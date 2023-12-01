@@ -148,6 +148,7 @@ VOID DbgSerialInfo(VOID)
     }
     switch (DebugSerial) {
     case DS_DRIVER:
+        {
         EFI_SERIAL_IO_MODE *Mode = DebugSerialIo->Mode;
         Print(L"SerialIo Protocol (%p)\n", DebugSerialIo);
         Print(L"├──Timeout          = %u\n", Mode->Timeout);
@@ -156,6 +157,7 @@ VOID DbgSerialInfo(VOID)
         Print(L"├──DataBits         = %u\n", Mode->DataBits);
         Print(L"├──Parity           = %u\n", Mode->Parity);
         Print(L"└──StopBits         = %u\n", Mode->StopBits);
+        }
         break;
     case DS_DIRECT:
         Print(L"Serial Direct\n");
